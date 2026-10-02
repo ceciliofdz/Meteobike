@@ -34,7 +34,7 @@ La consulta meteorológica necesita conexión a Internet. La disponibilidad de c
 | Namespace | `com.cfsd.meteocadaaveres` |
 | Application ID | `com.cfsd.meteocadaaveres` |
 
-El repositorio se llama **Meteobike**. Actualmente, el nombre visible en la aplicación sigue siendo **Meteobike Cadaáveres**; su cambio a **Meteobike** está pendiente. El namespace y el application ID se conservarán.
+El nombre visible de la aplicación es **Meteobike**, tanto en español como en inglés, incluida la etiqueta bajo el icono y la cabecera de la pantalla principal. El namespace y el application ID se mantienen como `com.cfsd.meteocadaaveres`.
 
 La etiqueta [`v1.4-pre-meteobike`](https://github.com/ceciliofdz/Meteobike/tree/v1.4-pre-meteobike) conserva el código previo al cambio de nombre, con la versión `1.4` y el código `5`. Es un punto de referencia del código, no una publicación de un APK o AAB.
 

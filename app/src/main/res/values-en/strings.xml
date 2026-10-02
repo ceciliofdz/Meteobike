@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Meteobike Cadaáveres</string>
+    <string name="app_name">Meteobike</string>
     <string name="info_title">Information</string>
-    <string name="info_description">Weather for Cyclists is an app that helps you plan your bike rides by checking AEMET\'s weather forecast.</string>
+    <string name="info_description">Meteobike is an app that helps you plan your bike rides by checking AEMET\'s weather forecast.</string>
     <string name="info_donation">If you like the app and want to support its development, consider making a donation. Any help is welcome!</string>
     <string name="donate_button">Donate with PayPal</string>
     <string name="close_button">Close</string>

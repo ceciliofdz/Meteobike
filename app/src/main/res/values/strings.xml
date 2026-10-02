@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Meteobike Cadaáveres</string>
+    <string name="app_name">Meteobike</string>
     <string name="info_title">Información</string>
-    <string name="info_description">Meteorología para Cadaáveres es una aplicación que te ayuda a planificar tus salidas en bicicleta consultando la predicción meteorológica de AEMET.</string>
+    <string name="info_description">Meteobike es una aplicación que te ayuda a planificar tus salidas en bicicleta consultando la predicción meteorológica de AEMET.</string>
     <string name="info_donation">Si te gusta la aplicación y quieres apoyar su desarrollo, considera hacer una donación. ¡Cualquier ayuda es bienvenida!</string>
     <string name="donate_button">Donar con PayPal</string>
     <string name="close_button">Cerrar</string>
