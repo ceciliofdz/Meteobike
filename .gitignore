@@ -1,0 +1,32 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Local IDE and Kotlin caches
+/.idea/
+/.kotlin/
+
+# Generated release artifacts
+/app/release/
+*.apk
+*.aab
+
+# Signing keys and local credentials
+*.jks
+*.keystore
+keystore.properties
+key.properties
+.env
+.env.*
