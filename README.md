@@ -2,6 +2,10 @@
 
 Aplicación Android para planificar salidas en bicicleta consultando la predicción meteorológica de AEMET para localidades de España.
 
+<img src="app/src/main/ic_launcher-playstore.png" alt="Meteobike: bicicleta, sol, nube y lluvia" width="192" />
+
+La imagen de marca combina ciclismo y previsión meteorológica. El original y las indicaciones de generación se conservan en `artwork/`.
+
 ## Funciones
 
 - Búsqueda de localidades por nombre, con su provincia en los resultados.

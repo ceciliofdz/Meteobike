@@ -599,7 +599,7 @@ fun MainScreen(
                         painter = painterResource(id = R.drawable.icono_clima),
                         contentDescription = context.getString(R.string.app_icon_description),
                         modifier = Modifier
-                            .size(120.dp)
+                            .size(160.dp)
                             .padding(vertical = DefaultPadding)
                     )
                     Text(
