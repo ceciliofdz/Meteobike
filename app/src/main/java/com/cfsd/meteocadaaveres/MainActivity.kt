@@ -1422,7 +1422,7 @@ fun TemperatureLineChart(prediccionHoraria: List<PrediccionHoraria>, colors: The
     val points = prediccionHoraria.mapNotNull {
         val temp = it.temperatura.toFloatOrNull()
         val hour = it.hora.split(":")[0].toIntOrNull()
-        if (temp != null && hour != null) hour to temp else null
+        if (temp != null && temp.isFinite() && hour != null) hour to temp else null
     }
 
     if (points.isEmpty()) {
@@ -1435,6 +1435,8 @@ fun TemperatureLineChart(prediccionHoraria: List<PrediccionHoraria>, colors: The
         return
     }
 
+    val verticalFractions = temperatureChartFractions(points.map { it.second })
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -1445,18 +1447,21 @@ fun TemperatureLineChart(prediccionHoraria: List<PrediccionHoraria>, colors: The
             .width(startOffset + spacing * points.size)
             .height(maxHeight + 40.dp)
         ) {
-            val maxTemp = points.maxOfOrNull { it.second } ?: 0f
-            val minTemp = points.minOfOrNull { it.second } ?: 0f
-            val tempRange = maxTemp - minTemp
+            val plotTop = 24.dp.toPx()
+            val plotBottom = maxHeight.toPx() - 12.dp.toPx()
+            val positions = verticalFractions.mapIndexed { index, fraction ->
+                Offset(
+                    startOffset.toPx() + index * spacing.toPx(),
+                    plotTop + fraction * (plotBottom - plotTop)
+                )
+            }
 
             val path = Path()
-            points.forEachIndexed { index, (hour, temp) ->
-                val x = startOffset.toPx() + index * spacing.toPx()
-                val y = maxHeight.toPx() - ((temp - minTemp) / tempRange * maxHeight.toPx())
+            positions.forEachIndexed { index, position ->
                 if (index == 0) {
-                    path.moveTo(x, y)
+                    path.moveTo(position.x, position.y)
                 } else {
-                    path.lineTo(x, y)
+                    path.lineTo(position.x, position.y)
                 }
             }
             drawPath(
@@ -1466,8 +1471,7 @@ fun TemperatureLineChart(prediccionHoraria: List<PrediccionHoraria>, colors: The
             )
 
             points.forEachIndexed { index, (hour, temp) ->
-                val x = startOffset.toPx() + index * spacing.toPx()
-                val y = maxHeight.toPx() - ((temp - minTemp) / tempRange * maxHeight.toPx())
+                val (x, y) = positions[index]
                 drawCircle(
                     color = colors.accentOrange,
                     center = Offset(x, y),
