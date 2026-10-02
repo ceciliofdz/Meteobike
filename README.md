@@ -104,6 +104,20 @@ En Windows, utiliza `gradlew.bat` en lugar de `./gradlew`.
 
 Para distribuir una versión firmada, utiliza **Generate Signed App Bundle / APK** en Android Studio con la clave de firma correspondiente. El repositorio no incluye claves ni una configuración de firma de release.
 
+La variante `release` activa R8 (reducción de código, optimización y ofuscación) y la reducción de recursos. Las reglas de `app/proguard-rules.pro` protegen únicamente los modelos que Gson lee por reflexión, para conservar el catálogo, las preferencias guardadas y los datos de navegación.
+
+Para generar un bundle de comprobación sin configurar una firma de publicación:
+
+```bash
+./gradlew bundleRelease
+```
+
+Se genera en `app/build/outputs/bundle/release/app-release.aab`. La firma de publicación sigue siendo necesaria para distribuirlo. Conserva el archivo `app/build/outputs/mapping/release/mapping.txt` de cada versión publicada para interpretar los errores ofuscados. El bundle incorpora los metadatos de R8 y el mapping; puedes inspeccionar las métricas locales con:
+
+```bash
+unzip -p app/build/outputs/bundle/release/app-release.aab BUNDLE-METADATA/com.android.tools/r8.json
+```
+
 ## Estructura
 
 ```text

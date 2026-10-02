@@ -1,3 +1,17 @@
+# Gson 2.10.1 uses reflection for these JSON models. Preserve field names
+# for the bundled locality catalog, saved preferences and navigation JSON.
+# Keep only these models, not the entire app or its dependencies.
+-keepattributes Signature
+-keep class com.google.gson.reflect.TypeToken { *; }
+-keep class * extends com.google.gson.reflect.TypeToken
+
+-keep class com.cfsd.meteocadaaveres.ProvinciaLocalidades { <fields>; }
+-keep class com.cfsd.meteocadaaveres.LocalidadWrapper { <fields>; }
+-keep class com.cfsd.meteocadaaveres.Localidad { <fields>; }
+-keep class com.cfsd.meteocadaaveres.DiaPrediccion { <fields>; }
+# DiaPrediccion contains List<Pair<String, String>>, also read by Gson.
+-keep class kotlin.Pair { <fields>; }
+
 # Add project specific ProGuard rules here.
 # You can control the set of applied configuration files using the
 # proguardFiles setting in build.gradle.
